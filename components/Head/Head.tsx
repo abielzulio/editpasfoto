@@ -32,8 +32,8 @@ const Head = (props: HeadProps) => {
 }
 
 Head.defaultProps = {
-  title: product.name,
-  description: product.description,
+  title: product.name + " | " + product.description.short,
+  description: product.description.long,
   keywords: product.keywords,
   img: product.img,
   url: product.url,
