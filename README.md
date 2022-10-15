@@ -34,4 +34,4 @@ Resources for getting started on how to contribute
 
 ## License
 
-GNU GPLv3 © 2022 Abiel Zulio M
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/) © 2022 Abiel Zulio M
