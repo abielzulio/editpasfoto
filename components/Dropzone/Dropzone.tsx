@@ -1,11 +1,8 @@
 import { useCallback } from "react"
 import { useDropzone } from "react-dropzone"
 import { useState } from "react"
-
-interface Image {
-  id: number
-  src: string | undefined
-}
+import { Image } from "types"
+import Editor from "components/Editor"
 
 const Dropzone = () => {
   const [image, setImage] = useState<Image[]>([])
@@ -42,7 +39,7 @@ const Dropzone = () => {
   })
 
   return (
-    <section className="h-full my-[100px] mx-auto">
+    <section className="h-min my-[100px] mx-auto">
       <aside
         className={`border-opacity-25 border-[2px] p-[25px] text-white ${
           isDragAccept ? "border-opacity-100" : ""
@@ -53,7 +50,7 @@ const Dropzone = () => {
         }`}
       >
         {acceptedFiles.length > 0 ? (
-          <>{image.length > 0 && <img src={image[0].src} />}</>
+          <Editor image={image} />
         ) : (
           <div {...getRootProps({ className: "dropzone" })}>
             <input
