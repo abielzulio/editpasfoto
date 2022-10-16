@@ -1,11 +1,13 @@
+import Dropzone from "components/Dropzone"
 import type { NextPage } from "next"
 
 const Home: NextPage = () => {
   return (
-    <section className="w-screen h-screen text-center flex flex-col align-center justify-center bg-black-radial-gradient">
-      <h1 className="text-[54px] text-transparent bg-white-linear-gradient bg-clip-text tracking-tight leading-[54px]">
-        Hello, world
+    <section className="w-screen h-screen py-[100px] text-center flex flex-col align-center justify-center bg-black-radial-gradient">
+      <h1 className="text-[64px] text-transparent bg-white-linear-gradient bg-clip-text tracking-tight leading-[64px]">
+        Edit pas foto. <br /> Tanpa skill edit foto.
       </h1>
+      <Dropzone />
     </section>
   )
 }
