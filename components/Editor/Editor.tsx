@@ -1,5 +1,6 @@
+import Download from "components/Download"
 import { IMAGE_RATIO_OPTIONS, IMAGE_SCALER_FACTOR } from "data/editor"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Image, Ratio } from "types"
 
 interface EditorProps {
@@ -8,6 +9,7 @@ interface EditorProps {
 
 const Editor = (props: EditorProps) => {
   const { image } = props
+  const ref = useRef<HTMLImageElement>(null)
   const [currentRatio, setCurrentRatio] = useState<Ratio>(
     IMAGE_RATIO_OPTIONS[0]
   )
@@ -21,23 +23,23 @@ const Editor = (props: EditorProps) => {
   return (
     <>
       {image.length > 0 && (
-        <div
-          className={`w-[${currentRatio.width * IMAGE_SCALER_FACTOR}px] h-[${
-            currentRatio.height * IMAGE_SCALER_FACTOR
-          }px] relative object-cover`}
-        >
-          <img
-            src={image[0].src}
-            width={currentRatio.width * IMAGE_SCALER_FACTOR}
-            height={currentRatio.height * IMAGE_SCALER_FACTOR}
-            className={`w-[${currentRatio.width * IMAGE_SCALER_FACTOR}px] h-[${
-              currentRatio.height * IMAGE_SCALER_FACTOR
-            }px] object-cover`}
+        <div className="flex flex-col align-center">
+          <div
+            ref={ref}
+            className={`relative object-cover`}
+            style={{
+              width: `${currentRatio.width * IMAGE_SCALER_FACTOR}px`,
+              height: `${currentRatio.height * IMAGE_SCALER_FACTOR}px`,
+              background: `url(${image[0].src})`,
+              backgroundPosition: "center center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
           />
           <select
             value={currentRatio.value}
             onChange={handleRatioChange}
-            className="text-black"
+            className="text-black my-10 mx-auto"
           >
             {IMAGE_RATIO_OPTIONS.map((ratio_option) => (
               <option key={ratio_option.id} value={ratio_option.value}>
@@ -45,6 +47,7 @@ const Editor = (props: EditorProps) => {
               </option>
             ))}
           </select>
+          <Download passRef={ref} fileName={image[0].name} />
         </div>
       )}
     </>
