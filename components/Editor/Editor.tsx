@@ -39,7 +39,7 @@ const Editor = (props: EditorProps) => {
           <select
             value={currentRatio.value}
             onChange={handleRatioChange}
-            className="text-black"
+            className="text-black my-10 mx-auto"
           >
             {IMAGE_RATIO_OPTIONS.map((ratio_option) => (
               <option key={ratio_option.id} value={ratio_option.value}>
