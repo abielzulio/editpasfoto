@@ -1,5 +1,6 @@
+import Download from "components/Download"
 import { IMAGE_RATIO_OPTIONS, IMAGE_SCALER_FACTOR } from "data/editor"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Image, Ratio } from "types"
 
 interface EditorProps {
@@ -8,6 +9,7 @@ interface EditorProps {
 
 const Editor = (props: EditorProps) => {
   const { image } = props
+  const ref = useRef<HTMLImageElement>(null)
   const [currentRatio, setCurrentRatio] = useState<Ratio>(
     IMAGE_RATIO_OPTIONS[0]
   )
@@ -23,6 +25,7 @@ const Editor = (props: EditorProps) => {
       {image.length > 0 && (
         <div className="flex flex-col align-center">
           <div
+            ref={ref}
             className={`relative object-cover`}
             style={{
               width: `${currentRatio.width * IMAGE_SCALER_FACTOR}px`,
@@ -44,6 +47,7 @@ const Editor = (props: EditorProps) => {
               </option>
             ))}
           </select>
+          <Download passRef={ref} fileName={image[0].name} />
         </div>
       )}
     </>
