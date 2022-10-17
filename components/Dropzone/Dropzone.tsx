@@ -15,7 +15,7 @@ const Dropzone = () => {
       reader.onload = () => {
         setImage((prev) => [
           ...prev,
-          { id: index, src: reader.result?.toString() },
+          { id: index, src: reader.result?.toString(), name: file.name },
         ])
       }
       reader.readAsDataURL(file)
