@@ -21,18 +21,17 @@ const Editor = (props: EditorProps) => {
   return (
     <>
       {image.length > 0 && (
-        <div
-          className={`w-[${currentRatio.width * IMAGE_SCALER_FACTOR}px] h-[${
-            currentRatio.height * IMAGE_SCALER_FACTOR
-          }px] relative object-cover`}
-        >
-          <img
-            src={image[0].src}
-            width={currentRatio.width * IMAGE_SCALER_FACTOR}
-            height={currentRatio.height * IMAGE_SCALER_FACTOR}
-            className={`w-[${currentRatio.width * IMAGE_SCALER_FACTOR}px] h-[${
-              currentRatio.height * IMAGE_SCALER_FACTOR
-            }px] object-cover`}
+        <div className="flex flex-col align-center">
+          <div
+            className={`relative object-cover`}
+            style={{
+              width: `${currentRatio.width * IMAGE_SCALER_FACTOR}px`,
+              height: `${currentRatio.height * IMAGE_SCALER_FACTOR}px`,
+              background: `url(${image[0].src})`,
+              backgroundPosition: "center center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
           />
           <select
             value={currentRatio.value}
