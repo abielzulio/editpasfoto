@@ -2,12 +2,15 @@ import Download from "components/Download"
 import { IMAGE_RATIO_OPTIONS, IMAGE_SCALER_FACTOR } from "data/editor"
 import {
   OUTER_OPTIONS,
+  OUTER_SCALE_DEFAULT,
   OUTER_SCALE_MAX,
   OUTER_SCALE_MIN,
   OUTER_SCALE_STEP,
+  OUTER_X_AXIS_DEFAULT,
   OUTER_X_AXIS_MAX,
   OUTER_X_AXIS_MIN,
   OUTER_X_AXIS_STEP,
+  OUTER_Y_AXIS_DEFAULT,
   OUTER_Y_AXIS_MAX,
   OUTER_Y_AXIS_MIN,
   OUTER_Y_AXIS_STEP,
@@ -27,11 +30,11 @@ const Editor = (props: EditorProps) => {
   )
   const [currentOuter, setCurrentOuter] = useState<Outer>(OUTER_OPTIONS[0])
 
-  const [outerYAxis, setOuterYAxis] = useState<number>(0)
+  const [outerYAxis, setOuterYAxis] = useState<number>(OUTER_Y_AXIS_DEFAULT)
 
-  const [outerXAxis, setOuterXAxis] = useState<number>(0)
+  const [outerXAxis, setOuterXAxis] = useState<number>(OUTER_X_AXIS_DEFAULT)
 
-  const [outerScaler, setOuterScaler] = useState<number>(1)
+  const [outerScaler, setOuterScaler] = useState<number>(OUTER_SCALE_DEFAULT)
 
   const handleRatioChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedRatio = IMAGE_RATIO_OPTIONS.find(
@@ -96,7 +99,12 @@ const Editor = (props: EditorProps) => {
               </option>
             ))}
           </select>
-          <p>Posisi Vertikal Outer</p>
+          <div className="flex justify-between">
+            <p>Posisi Vertikal Outer</p>
+            <button onClick={(e) => setOuterYAxis(OUTER_Y_AXIS_DEFAULT)}>
+              reset
+            </button>
+          </div>
           <input
             type="range"
             min={OUTER_Y_AXIS_MIN}
@@ -105,7 +113,12 @@ const Editor = (props: EditorProps) => {
             onChange={(e) => setOuterYAxis(Number(e.target.value))}
             value={outerYAxis}
           />
-          <p>Posisi Horizontal Outer</p>
+          <div className="flex justify-between">
+            <p>Posisi Horizontal Outer</p>
+            <button onClick={(e) => setOuterXAxis(OUTER_X_AXIS_DEFAULT)}>
+              reset
+            </button>
+          </div>
           <input
             type="range"
             min={OUTER_X_AXIS_MIN}
@@ -114,7 +127,12 @@ const Editor = (props: EditorProps) => {
             onChange={(e) => setOuterXAxis(Number(e.target.value))}
             value={outerXAxis}
           />
-          <p>Perbesar Outer</p>
+          <div className="flex justify-between">
+            <p>Perbesar outer</p>
+            <button onClick={(e) => setOuterScaler(OUTER_SCALE_DEFAULT)}>
+              reset
+            </button>
+          </div>
           <input
             type="range"
             min={OUTER_SCALE_MIN}
