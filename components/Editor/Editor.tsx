@@ -15,16 +15,16 @@ import {
   OUTER_Y_AXIS_MIN,
   OUTER_Y_AXIS_STEP,
 } from "data/outer"
-import { useRef, useState } from "react"
+import { Dispatch, SetStateAction, useRef, useState } from "react"
 import { Image, Outer, Ratio } from "types"
 
 interface EditorProps {
   image: Image[]
-  reset: (e: Event) => void
+  resetImage: Dispatch<SetStateAction<Image[]>>
 }
 
 const Editor = (props: EditorProps) => {
-  const { image, reset } = props
+  const { image, resetImage } = props
   const ref = useRef<HTMLImageElement>(null)
   const [currentRatio, setCurrentRatio] = useState<Ratio>(
     IMAGE_RATIO_OPTIONS[0]
@@ -80,7 +80,7 @@ const Editor = (props: EditorProps) => {
               />
             </div>
             <Download passRef={ref} fileName={image[0].name} />
-            <button onClick={reset}>hapus foto</button>
+            <button onClick={(e) => resetImage([])}>hapus foto</button>
           </div>
           <div className="flex flex-col">
             <select

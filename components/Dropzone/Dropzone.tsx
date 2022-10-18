@@ -51,7 +51,7 @@ const Dropzone = () => {
       >
         {image.length > 0 ? (
           <>
-            <Editor image={image} reset={(e) => setImage([])} />
+            <Editor image={image} resetImage={setImage} />
           </>
         ) : (
           <div {...getRootProps({ className: "dropzone" })}>
