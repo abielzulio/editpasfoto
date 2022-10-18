@@ -43,7 +43,7 @@ const Editor = (props: EditorProps) => {
         <div className="flex flex-col align-center">
           <div
             ref={ref}
-            className={`relative object-cover`}
+            className={`relative object-cover overflow-hidden`}
             style={{
               width: `${currentRatio.width * IMAGE_SCALER_FACTOR}px`,
               height: `${currentRatio.height * IMAGE_SCALER_FACTOR}px`,
