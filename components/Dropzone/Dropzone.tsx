@@ -25,7 +25,6 @@ const Dropzone = () => {
   }, [])
 
   const {
-    acceptedFiles,
     getRootProps,
     getInputProps,
     isDragAccept,
