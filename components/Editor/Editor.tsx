@@ -58,12 +58,12 @@ const Editor = (props: EditorProps) => {
   return (
     <>
       {image.length > 0 && (
-        <div className="grid grid-cols-2 gap-[30px] align-center">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-[30px] align-center text-white text-opacity-80 text-sm">
           <div
-            className="flex flex-col relative justify-center items-center"
+            className="flex flex-col relative justify-center items-center bg-white bg-opacity-5 -[25px]"
             style={{
               width: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
-              height: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
+              height: `100%`,
             }}
           >
             <div
@@ -156,8 +156,10 @@ const Editor = (props: EditorProps) => {
                 onChange={(e) => setOuterScale(Number(e.target.value))}
               />
             </Input.Root>
-            <Download passRef={ref} fileName={image[0].name} />
-            <button onClick={() => resetImage([])}>hapus foto</button>
+            <div className="flex gap-[20px] mx-auto">
+              <Download passRef={ref} fileName={image[0].name} />
+              <button onClick={() => resetImage([])}>Ganti foto</button>
+            </div>
           </div>
         </div>
       )}

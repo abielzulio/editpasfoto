@@ -42,7 +42,7 @@ const Download = (props: DownloadProps) => {
   return (
     <button
       onClick={onButtonClick}
-      className="rounded-full bg-white text-black mx-auto px-4"
+      className="rounded-full bg-white text-black px-[16px] py-[4px] hover:bg-opacity-80"
     >
       Download
     </button>
