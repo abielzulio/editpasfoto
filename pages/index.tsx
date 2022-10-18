@@ -1,4 +1,5 @@
 import Dropzone from "components/Dropzone"
+import Author from "components/Author"
 import type { NextPage } from "next"
 
 const Home: NextPage = () => {
@@ -8,6 +9,7 @@ const Home: NextPage = () => {
         Edit pas foto. <br /> Tanpa skill edit foto.
       </h1>
       <Dropzone />
+      <Author />
     </section>
   )
 }
