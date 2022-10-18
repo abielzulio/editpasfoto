@@ -29,16 +29,16 @@ interface EditorProps {
 
 const Editor = (props: EditorProps) => {
   const { image, resetImage } = props
+
   const ref = useRef<HTMLImageElement>(null)
+
   const [currentRatio, setCurrentRatio] = useState<Ratio>(
     IMAGE_RATIO_OPTIONS[0]
   )
   const [currentOuter, setCurrentOuter] = useState<Outer>(OUTER_OPTIONS[0])
 
   const [outerYAxis, setOuterYAxis] = useState<number>(OUTER_Y_AXIS_DEFAULT)
-
   const [outerXAxis, setOuterXAxis] = useState<number>(OUTER_X_AXIS_DEFAULT)
-
   const [outerScale, setOuterScale] = useState<number>(OUTER_SCALE_DEFAULT)
 
   const handleRatioChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -47,7 +47,6 @@ const Editor = (props: EditorProps) => {
     )
     setCurrentRatio(selectedRatio as Ratio)
   }
-
   const handleOuterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedOuter = OUTER_OPTIONS.find(
       (outer: Outer) => outer.value === e.target.value
