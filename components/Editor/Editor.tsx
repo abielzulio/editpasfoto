@@ -57,9 +57,9 @@ const Editor = (props: EditorProps) => {
   return (
     <>
       {image.length > 0 && (
-        <div className="grid grid-cols-2 align-center">
+        <div className="grid grid-cols-2 gap-[30px] align-center">
           <div
-            className="flex flex-col relative bg-blue-900 justify-center items-center"
+            className="flex flex-col relative justify-center items-center"
             style={{
               width: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
               height: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
