@@ -1,4 +1,4 @@
-import { Ratio } from "types"
+import { Ratio, Image } from "types"
 
 const BASE_SIZE: number = 100
 
@@ -30,6 +30,14 @@ export const IMAGE_RATIO_OPTIONS: Ratio[] = [
     value: "4:5",
     width: (4 / 5) * BASE_SIZE,
     height: BASE_SIZE,
+  },
+]
+
+export const SAMPLE_IMAGE: Image[] = [
+  {
+    id: 0,
+    src: "/img/sample.jpg",
+    name: "sample.jpg",
   },
 ]
 

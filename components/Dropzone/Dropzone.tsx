@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone"
 import { useState } from "react"
 import { Image } from "types"
 import Editor from "components/Editor"
+import { SAMPLE_IMAGE } from "data/editor"
 
 const Dropzone = () => {
   const [image, setImage] = useState<Image[]>([])
@@ -54,19 +55,27 @@ const Dropzone = () => {
             <Editor image={image} resetImage={setImage} />
           </>
         ) : (
-          <div {...getRootProps({ className: "dropzone" })}>
-            <input
-              {...getInputProps()}
-              className={`${isDragReject ? "cursor-not-allowed" : ""}`}
-            />
-            {isDragAccept && <p>Foto dapat diunggah</p>}
-            {isDragReject && (
-              <p>Hanya mendukung jenis file .png, .jpg, dan .jpeg.</p>
-            )}
-            {!isDragActive && (
-              <p>Tarik atau klik untuk unggah foto (.png, .jpg, dan .jpeg)</p>
-            )}
-          </div>
+          <>
+            <div {...getRootProps({ className: "dropzone" })}>
+              <input
+                {...getInputProps()}
+                className={`${isDragReject ? "cursor-not-allowed" : ""}`}
+              />
+              {isDragAccept && <p>Foto dapat diunggah</p>}
+              {isDragReject && (
+                <p>Hanya mendukung jenis file .png, .jpg, dan .jpeg.</p>
+              )}
+              {!isDragActive && (
+                <p>Tarik atau klik untuk unggah foto (.png, .jpg, dan .jpeg)</p>
+              )}
+            </div>
+            <button
+              onClick={() => setImage(SAMPLE_IMAGE)}
+              className="my-5 opacity-50"
+            >
+              sample
+            </button>
+          </>
         )}
       </aside>
     </section>
