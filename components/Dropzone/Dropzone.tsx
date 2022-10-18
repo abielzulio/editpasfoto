@@ -51,8 +51,7 @@ const Dropzone = () => {
       >
         {image.length > 0 ? (
           <>
-            <Editor image={image} />
-            <button onClick={(e) => setImage([])}>hapus foto</button>
+            <Editor image={image} reset={(e) => setImage([])} />
           </>
         ) : (
           <div {...getRootProps({ className: "dropzone" })}>
