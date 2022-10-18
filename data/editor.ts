@@ -1,6 +1,6 @@
 import { Ratio, Image } from "types"
 
-const BASE_SIZE: number = 100
+export const BASE_SIZE: number = 100
 
 export const IMAGE_RATIO_OPTIONS: Ratio[] = [
   {

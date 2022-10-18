@@ -1,5 +1,9 @@
 import Download from "components/Download"
-import { IMAGE_RATIO_OPTIONS, IMAGE_SCALER_FACTOR } from "data/editor"
+import {
+  BASE_SIZE,
+  IMAGE_RATIO_OPTIONS,
+  IMAGE_SCALER_FACTOR,
+} from "data/editor"
 import {
   OUTER_OPTIONS,
   OUTER_SCALE_DEFAULT,
@@ -55,7 +59,13 @@ const Editor = (props: EditorProps) => {
     <>
       {image.length > 0 && (
         <div className="grid grid-cols-2 align-center">
-          <div className="flex flex-col">
+          <div
+            className="flex flex-col relative bg-blue-900 justify-center items-center"
+            style={{
+              width: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
+              height: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
+            }}
+          >
             <div
               ref={ref}
               className={`relative object-cover overflow-hidden`}
