@@ -2,6 +2,9 @@ import Download from "components/Download"
 import { IMAGE_RATIO_OPTIONS, IMAGE_SCALER_FACTOR } from "data/editor"
 import {
   OUTER_OPTIONS,
+  OUTER_SCALE_MAX,
+  OUTER_SCALE_MIN,
+  OUTER_SCALE_STEP,
   OUTER_X_AXIS_MAX,
   OUTER_X_AXIS_MIN,
   OUTER_X_AXIS_STEP,
@@ -27,6 +30,8 @@ const Editor = (props: EditorProps) => {
   const [outerYAxis, setOuterYAxis] = useState<number>(0)
 
   const [outerXAxis, setOuterXAxis] = useState<number>(0)
+
+  const [outerScaler, setOuterScaler] = useState<number>(1)
 
   const handleRatioChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedRatio = IMAGE_RATIO_OPTIONS.find(
@@ -65,6 +70,7 @@ const Editor = (props: EditorProps) => {
               style={{
                 marginTop: `${outerYAxis}px`,
                 left: `${outerXAxis}px`,
+                transform: `scale(${outerScaler})`,
               }}
             />
           </div>
@@ -107,6 +113,15 @@ const Editor = (props: EditorProps) => {
             step={OUTER_X_AXIS_STEP}
             onChange={(e) => setOuterXAxis(Number(e.target.value))}
             value={outerXAxis}
+          />
+          <p>Perbesar Outer</p>
+          <input
+            type="range"
+            min={OUTER_SCALE_MIN}
+            max={OUTER_SCALE_MAX}
+            step={OUTER_SCALE_STEP}
+            onChange={(e) => setOuterScaler(Number(e.target.value))}
+            value={outerScaler}
           />
           <Download passRef={ref} fileName={image[0].name} />
         </div>

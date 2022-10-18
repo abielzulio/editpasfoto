@@ -43,3 +43,7 @@ export const OUTER_Y_AXIS_STEP: number = 0.05
 export const OUTER_X_AXIS_MIN: number = -100
 export const OUTER_X_AXIS_MAX: number = 100
 export const OUTER_X_AXIS_STEP: number = 0.05
+
+export const OUTER_SCALE_MIN: number = 0
+export const OUTER_SCALE_MAX: number = 3
+export const OUTER_SCALE_STEP: number = 0.05
