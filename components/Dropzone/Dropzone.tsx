@@ -48,7 +48,7 @@ const Dropzone = () => {
           </p>
           <div
             {...getRootProps({ className: "dropzone" })}
-            className={`flex border-opacity-20 border-[2px] p-[25px] text-white w-[150px] h-[200px] rounded-md text-opacity-30 hover:border-opacity-50 hover:cursor-pointer hover:bg-gray-800 hover:text-opacity-100 ${
+            className={`transition flex border-opacity-20 border-[2px] p-[25px] text-white w-[150px] h-[200px] rounded-md text-opacity-30 hover:border-opacity-50 hover:cursor-pointer hover:bg-gray-800 hover:text-opacity-100 ${
               isDragAccept
                 ? "border-opacity-100 text-opacity-100 bg-gray-800"
                 : "border-dashed"
@@ -76,7 +76,7 @@ const Dropzone = () => {
           </div>
           <button
             onClick={() => setImage(SAMPLE_IMAGE)}
-            className="mt-[20px] text-opacity-50 text-white text-sm hover:text-opacity-80"
+            className="mt-[20px] text-opacity-50 text-white text-sm hover:text-opacity-80 transition"
           >
             Lihat contoh
           </button>
