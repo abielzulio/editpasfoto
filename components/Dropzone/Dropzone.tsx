@@ -49,8 +49,11 @@ const Dropzone = () => {
             : "border-white"
         }`}
       >
-        {acceptedFiles.length > 0 ? (
-          <Editor image={image} />
+        {image.length > 0 ? (
+          <>
+            <Editor image={image} />
+            <button onClick={(e) => setImage([])}>hapus foto</button>
+          </>
         ) : (
           <div {...getRootProps({ className: "dropzone" })}>
             <input
