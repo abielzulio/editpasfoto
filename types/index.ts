@@ -6,8 +6,18 @@ export interface Image {
 
 export interface Ratio {
   id: number
-  label: string
   value: string
   width: number
   height: number
+}
+
+export interface Outer {
+  id: number
+  value: string
+  src: string
+}
+
+export interface ContainerProps {
+  children: React.ReactNode
+  className?: string
 }
