@@ -21,6 +21,7 @@ import {
 } from "data/outer"
 import { Dispatch, SetStateAction, useRef, useState } from "react"
 import { Image, Outer, Ratio } from "types"
+import * as Input from "components/Input"
 
 interface EditorProps {
   image: Image[]
@@ -90,41 +91,28 @@ const Editor = (props: EditorProps) => {
             </div>
           </div>
           <div className="flex flex-col">
-            <select
+            <Input.Select
               value={currentRatio.value}
               onChange={handleRatioChange}
-              className="text-black my-10"
-            >
-              {IMAGE_RATIO_OPTIONS.map((ratio_option) => (
-                <option key={ratio_option.id} value={ratio_option.value}>
-                  {ratio_option.value}
-                </option>
-              ))}
-            </select>
-            <select
+              options={IMAGE_RATIO_OPTIONS}
+            />
+            <Input.Select
               value={currentOuter.value}
               onChange={handleOuterChange}
-              className="text-black mb-10"
-            >
-              {OUTER_OPTIONS.map((outer_option) => (
-                <option key={outer_option.id} value={outer_option.value}>
-                  {outer_option.value}
-                </option>
-              ))}
-            </select>
+              options={OUTER_OPTIONS}
+            />
             <div className="flex justify-between">
               <p>Posisi Vertikal Outer</p>
               <button onClick={() => setOuterYAxis(OUTER_Y_AXIS_DEFAULT)}>
                 reset
               </button>
             </div>
-            <input
-              type="range"
+            <Input.Slider
               min={OUTER_Y_AXIS_MIN}
               max={OUTER_Y_AXIS_MAX}
               step={OUTER_Y_AXIS_STEP}
-              onChange={(e) => setOuterYAxis(Number(e.target.value))}
               value={outerYAxis}
+              onChange={(e) => setOuterYAxis(Number(e.target.value))}
             />
             <div className="flex justify-between">
               <p>Posisi Horizontal Outer</p>
@@ -132,13 +120,12 @@ const Editor = (props: EditorProps) => {
                 reset
               </button>
             </div>
-            <input
-              type="range"
+            <Input.Slider
               min={OUTER_X_AXIS_MIN}
               max={OUTER_X_AXIS_MAX}
               step={OUTER_X_AXIS_STEP}
-              onChange={(e) => setOuterXAxis(Number(e.target.value))}
               value={outerXAxis}
+              onChange={(e) => setOuterXAxis(Number(e.target.value))}
             />
             <div className="flex justify-between">
               <p>Perbesar outer</p>
@@ -146,13 +133,12 @@ const Editor = (props: EditorProps) => {
                 reset
               </button>
             </div>
-            <input
-              type="range"
+            <Input.Slider
               min={OUTER_SCALE_MIN}
               max={OUTER_SCALE_MAX}
               step={OUTER_SCALE_STEP}
-              onChange={(e) => setOuterScale(Number(e.target.value))}
               value={outerScale}
+              onChange={(e) => setOuterScale(Number(e.target.value))}
             />
             <Download passRef={ref} fileName={image[0].name} />
             <button onClick={() => resetImage([])}>hapus foto</button>
