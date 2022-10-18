@@ -19,7 +19,10 @@ const Download = (props: DownloadProps) => {
       toPng(passRef.current, { cacheBust: true })
         .then((dataUrl) => {
           const link = document.createElement("a")
-          link.download = `${fileName} - ${product.url}.png`
+          link.download = `${fileName.replace(
+            ".png",
+            ""
+          )} - editpasfoto.com.png`
           link.href = dataUrl
           link.click()
         })
@@ -30,7 +33,10 @@ const Download = (props: DownloadProps) => {
       toJpeg(passRef.current, { cacheBust: true })
         .then((dataUrl) => {
           const link = document.createElement("a")
-          link.download = `${fileName} - ${product.url}.jpeg`
+          link.download = `${fileName.replace(
+            ".jpeg",
+            ""
+          )} - editpasfoto.com.jpeg`
           link.href = dataUrl
           link.click()
         })
