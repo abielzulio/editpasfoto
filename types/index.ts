@@ -11,3 +11,9 @@ export interface Ratio {
   width: number
   height: number
 }
+
+export interface Outer {
+  id: number
+  value: string
+  src: string
+}
