@@ -1,6 +1,11 @@
 import Download from "components/Download"
 import { IMAGE_RATIO_OPTIONS, IMAGE_SCALER_FACTOR } from "data/editor"
-import { OUTER_OPTIONS } from "data/outer"
+import {
+  OUTER_OPTIONS,
+  OUTER_Y_AXIS_MAX,
+  OUTER_Y_AXIS_MIN,
+  OUTER_Y_AXIS_STEP,
+} from "data/outer"
 import { useRef, useState } from "react"
 import { Image, Outer, Ratio } from "types"
 
@@ -15,6 +20,8 @@ const Editor = (props: EditorProps) => {
     IMAGE_RATIO_OPTIONS[0]
   )
   const [currentOuter, setCurrentOuter] = useState<Outer>(OUTER_OPTIONS[0])
+
+  const [outerYAxis, setOuterYAxis] = useState<number>(0)
 
   const handleRatioChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedRatio = IMAGE_RATIO_OPTIONS.find(
@@ -50,6 +57,9 @@ const Editor = (props: EditorProps) => {
               src={currentOuter.src}
               alt={currentOuter.value}
               className="w-full h-full absolute"
+              style={{
+                marginTop: `${outerYAxis}px`,
+              }}
             />
           </div>
           <select
@@ -74,6 +84,15 @@ const Editor = (props: EditorProps) => {
               </option>
             ))}
           </select>
+          <p>Posisi Vertikal Outer</p>
+          <input
+            type="range"
+            min={OUTER_Y_AXIS_MIN}
+            max={OUTER_Y_AXIS_MAX}
+            step={OUTER_Y_AXIS_STEP}
+            onChange={(e) => setOuterYAxis(Number(e.target.value))}
+            value={outerYAxis}
+          />
           <Download passRef={ref} fileName={image[0].name} />
         </div>
       )}

@@ -35,3 +35,7 @@ export const OUTER_OPTIONS: Outer[] = [
     src: `${OUTER_PATH_BASE}/ugm/2.${OUTER_FILE_TYPE}`,
   },
 ]
+
+export const OUTER_Y_AXIS_MIN: number = -100
+export const OUTER_Y_AXIS_MAX: number = 200
+export const OUTER_Y_AXIS_STEP: number = 0.05
