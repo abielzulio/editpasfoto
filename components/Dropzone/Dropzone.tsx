@@ -39,7 +39,7 @@ const Dropzone = () => {
   })
 
   return (
-    <section className="h-min my-[100px] mx-auto bg-white bg-opacity-5 p-[25px] border-gray-50 border-[1px] border-opacity-10 rounded-xl">
+    <section className="h-min my-[60px] mx-auto bg-white bg-opacity-5 p-[25px] border-gray-50 border-[1px] border-opacity-10 rounded-xl">
       {image.length > 0 && <Editor image={image} resetImage={setImage} />}
       {image.length == 0 && (
         <>
