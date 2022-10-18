@@ -53,95 +53,99 @@ const Editor = (props: EditorProps) => {
   return (
     <>
       {image.length > 0 && (
-        <div className="flex flex-col align-center">
-          <div
-            ref={ref}
-            className={`relative object-cover overflow-hidden`}
-            style={{
-              width: `${currentRatio.width * IMAGE_SCALER_FACTOR}px`,
-              height: `${currentRatio.height * IMAGE_SCALER_FACTOR}px`,
-              background: `url(${image[0].src})`,
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-          >
-            <img
-              src={currentOuter.src}
-              alt={currentOuter.value}
-              className="w-full h-full absolute"
+        <div className="grid grid-cols-2 align-center">
+          <div className="flex flex-col">
+            <div
+              ref={ref}
+              className={`relative object-cover overflow-hidden`}
               style={{
-                marginTop: `${outerYAxis}px`,
-                left: `${outerXAxis}px`,
-                transform: `scale(${outerScale})`,
+                width: `${currentRatio.width * IMAGE_SCALER_FACTOR}px`,
+                height: `${currentRatio.height * IMAGE_SCALER_FACTOR}px`,
+                background: `url(${image[0].src})`,
+                backgroundPosition: "center center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
               }}
+            >
+              <img
+                src={currentOuter.src}
+                alt={currentOuter.value}
+                className="w-full h-full absolute"
+                style={{
+                  marginTop: `${outerYAxis}px`,
+                  left: `${outerXAxis}px`,
+                  transform: `scale(${outerScale})`,
+                }}
+              />
+            </div>
+            <Download passRef={ref} fileName={image[0].name} />
+          </div>
+          <div className="flex flex-col">
+            <select
+              value={currentRatio.value}
+              onChange={handleRatioChange}
+              className="text-black my-10"
+            >
+              {IMAGE_RATIO_OPTIONS.map((ratio_option) => (
+                <option key={ratio_option.id} value={ratio_option.value}>
+                  {ratio_option.label}
+                </option>
+              ))}
+            </select>
+            <select
+              value={currentOuter.value}
+              onChange={handleOuterChange}
+              className="text-black mb-10"
+            >
+              {OUTER_OPTIONS.map((outer_option) => (
+                <option key={outer_option.id} value={outer_option.value}>
+                  {outer_option.value}
+                </option>
+              ))}
+            </select>
+            <div className="flex justify-between">
+              <p>Posisi Vertikal Outer</p>
+              <button onClick={(e) => setOuterYAxis(OUTER_Y_AXIS_DEFAULT)}>
+                reset
+              </button>
+            </div>
+            <input
+              type="range"
+              min={OUTER_Y_AXIS_MIN}
+              max={OUTER_Y_AXIS_MAX}
+              step={OUTER_Y_AXIS_STEP}
+              onChange={(e) => setOuterYAxis(Number(e.target.value))}
+              value={outerYAxis}
+            />
+            <div className="flex justify-between">
+              <p>Posisi Horizontal Outer</p>
+              <button onClick={(e) => setOuterXAxis(OUTER_X_AXIS_DEFAULT)}>
+                reset
+              </button>
+            </div>
+            <input
+              type="range"
+              min={OUTER_X_AXIS_MIN}
+              max={OUTER_X_AXIS_MAX}
+              step={OUTER_X_AXIS_STEP}
+              onChange={(e) => setOuterXAxis(Number(e.target.value))}
+              value={outerXAxis}
+            />
+            <div className="flex justify-between">
+              <p>Perbesar outer</p>
+              <button onClick={(e) => setOuterScale(OUTER_SCALE_DEFAULT)}>
+                reset
+              </button>
+            </div>
+            <input
+              type="range"
+              min={OUTER_SCALE_MIN}
+              max={OUTER_SCALE_MAX}
+              step={OUTER_SCALE_STEP}
+              onChange={(e) => setOuterScale(Number(e.target.value))}
+              value={outerScale}
             />
           </div>
-          <select
-            value={currentRatio.value}
-            onChange={handleRatioChange}
-            className="text-black my-10 mx-auto"
-          >
-            {IMAGE_RATIO_OPTIONS.map((ratio_option) => (
-              <option key={ratio_option.id} value={ratio_option.value}>
-                {ratio_option.label}
-              </option>
-            ))}
-          </select>
-          <select
-            value={currentOuter.value}
-            onChange={handleOuterChange}
-            className="text-black mb-10 mx-auto"
-          >
-            {OUTER_OPTIONS.map((outer_option) => (
-              <option key={outer_option.id} value={outer_option.value}>
-                {outer_option.value}
-              </option>
-            ))}
-          </select>
-          <div className="flex justify-between">
-            <p>Posisi Vertikal Outer</p>
-            <button onClick={(e) => setOuterYAxis(OUTER_Y_AXIS_DEFAULT)}>
-              reset
-            </button>
-          </div>
-          <input
-            type="range"
-            min={OUTER_Y_AXIS_MIN}
-            max={OUTER_Y_AXIS_MAX}
-            step={OUTER_Y_AXIS_STEP}
-            onChange={(e) => setOuterYAxis(Number(e.target.value))}
-            value={outerYAxis}
-          />
-          <div className="flex justify-between">
-            <p>Posisi Horizontal Outer</p>
-            <button onClick={(e) => setOuterXAxis(OUTER_X_AXIS_DEFAULT)}>
-              reset
-            </button>
-          </div>
-          <input
-            type="range"
-            min={OUTER_X_AXIS_MIN}
-            max={OUTER_X_AXIS_MAX}
-            step={OUTER_X_AXIS_STEP}
-            onChange={(e) => setOuterXAxis(Number(e.target.value))}
-            value={outerXAxis}
-          />
-          <div className="flex justify-between">
-            <p>Perbesar outer</p>
-            <button onClick={(e) => setOuterScale(OUTER_SCALE_DEFAULT)}>
-              reset
-            </button>
-          </div>
-          <input
-            type="range"
-            min={OUTER_SCALE_MIN}
-            max={OUTER_SCALE_MAX}
-            step={OUTER_SCALE_STEP}
-            onChange={(e) => setOuterScale(Number(e.target.value))}
-            value={outerScale}
-          />
-          <Download passRef={ref} fileName={image[0].name} />
         </div>
       )}
     </>

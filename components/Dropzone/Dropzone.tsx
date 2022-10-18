@@ -42,11 +42,11 @@ const Dropzone = () => {
     <section className="h-min my-[100px] mx-auto">
       <aside
         className={`border-opacity-25 border-[2px] p-[25px] text-white ${
-          isDragAccept ? "border-opacity-100" : ""
+          isDragAccept ? "border-opacity-100 border-solid" : "border-dashed"
         } ${
           isDragReject
-            ? "border-red-900 border-opacity-100 !text-red-900 hover:!cursor-no-drop"
-            : "border-white"
+            ? "border-red-900 border-opacity-100 !text-red-900 hover:!cursor-no-drop border-solid"
+            : "border-white border-solid"
         }`}
       >
         {image.length > 0 ? (
