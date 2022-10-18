@@ -34,7 +34,7 @@ const Editor = (props: EditorProps) => {
 
   const [outerXAxis, setOuterXAxis] = useState<number>(OUTER_X_AXIS_DEFAULT)
 
-  const [outerScaler, setOuterScaler] = useState<number>(OUTER_SCALE_DEFAULT)
+  const [outerScale, setOuterScale] = useState<number>(OUTER_SCALE_DEFAULT)
 
   const handleRatioChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedRatio = IMAGE_RATIO_OPTIONS.find(
@@ -73,7 +73,7 @@ const Editor = (props: EditorProps) => {
               style={{
                 marginTop: `${outerYAxis}px`,
                 left: `${outerXAxis}px`,
-                transform: `scale(${outerScaler})`,
+                transform: `scale(${outerScale})`,
               }}
             />
           </div>
@@ -129,7 +129,7 @@ const Editor = (props: EditorProps) => {
           />
           <div className="flex justify-between">
             <p>Perbesar outer</p>
-            <button onClick={(e) => setOuterScaler(OUTER_SCALE_DEFAULT)}>
+            <button onClick={(e) => setOuterScale(OUTER_SCALE_DEFAULT)}>
               reset
             </button>
           </div>
@@ -138,8 +138,8 @@ const Editor = (props: EditorProps) => {
             min={OUTER_SCALE_MIN}
             max={OUTER_SCALE_MAX}
             step={OUTER_SCALE_STEP}
-            onChange={(e) => setOuterScaler(Number(e.target.value))}
-            value={outerScaler}
+            onChange={(e) => setOuterScale(Number(e.target.value))}
+            value={outerScale}
           />
           <Download passRef={ref} fileName={image[0].name} />
         </div>
