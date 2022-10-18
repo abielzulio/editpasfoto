@@ -22,6 +22,7 @@ import {
 import { Dispatch, SetStateAction, useRef, useState } from "react"
 import { Image, Outer, Ratio } from "types"
 import * as Input from "components/Input"
+import NextImage from "next/image"
 
 interface EditorProps {
   image: Image[]
@@ -78,17 +79,20 @@ const Editor = (props: EditorProps) => {
                 backgroundSize: "cover",
               }}
             >
-              <img
-                src={currentOuter.src}
-                alt={currentOuter.value}
+              <div
                 className="w-full h-full absolute"
                 style={{
                   marginTop: `${outerYAxis}px`,
                   left: `${outerXAxis}px`,
                   transform: `scale(${outerScale})`,
-                  objectFit: "cover",
                 }}
-              />
+              >
+                <NextImage
+                  src={currentOuter.src}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-[30px]">
