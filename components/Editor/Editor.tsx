@@ -2,6 +2,9 @@ import Download from "components/Download"
 import { IMAGE_RATIO_OPTIONS, IMAGE_SCALER_FACTOR } from "data/editor"
 import {
   OUTER_OPTIONS,
+  OUTER_X_AXIS_MAX,
+  OUTER_X_AXIS_MIN,
+  OUTER_X_AXIS_STEP,
   OUTER_Y_AXIS_MAX,
   OUTER_Y_AXIS_MIN,
   OUTER_Y_AXIS_STEP,
@@ -22,6 +25,8 @@ const Editor = (props: EditorProps) => {
   const [currentOuter, setCurrentOuter] = useState<Outer>(OUTER_OPTIONS[0])
 
   const [outerYAxis, setOuterYAxis] = useState<number>(0)
+
+  const [outerXAxis, setOuterXAxis] = useState<number>(0)
 
   const handleRatioChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedRatio = IMAGE_RATIO_OPTIONS.find(
@@ -59,6 +64,7 @@ const Editor = (props: EditorProps) => {
               className="w-full h-full absolute"
               style={{
                 marginTop: `${outerYAxis}px`,
+                left: `${outerXAxis}px`,
               }}
             />
           </div>
@@ -92,6 +98,15 @@ const Editor = (props: EditorProps) => {
             step={OUTER_Y_AXIS_STEP}
             onChange={(e) => setOuterYAxis(Number(e.target.value))}
             value={outerYAxis}
+          />
+          <p>Posisi Horizontal Outer</p>
+          <input
+            type="range"
+            min={OUTER_X_AXIS_MIN}
+            max={OUTER_X_AXIS_MAX}
+            step={OUTER_X_AXIS_STEP}
+            onChange={(e) => setOuterXAxis(Number(e.target.value))}
+            value={outerXAxis}
           />
           <Download passRef={ref} fileName={image[0].name} />
         </div>
