@@ -100,7 +100,7 @@ const Editor = (props: EditorProps) => {
             >
               {IMAGE_RATIO_OPTIONS.map((ratio_option) => (
                 <option key={ratio_option.id} value={ratio_option.value}>
-                  {ratio_option.label}
+                  {ratio_option.value}
                 </option>
               ))}
             </select>
