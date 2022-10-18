@@ -80,7 +80,7 @@ const Editor = (props: EditorProps) => {
               />
             </div>
             <Download passRef={ref} fileName={image[0].name} />
-            <button onClick={(e) => resetImage([])}>hapus foto</button>
+            <button onClick={() => resetImage([])}>hapus foto</button>
           </div>
           <div className="flex flex-col">
             <select
@@ -107,7 +107,7 @@ const Editor = (props: EditorProps) => {
             </select>
             <div className="flex justify-between">
               <p>Posisi Vertikal Outer</p>
-              <button onClick={(e) => setOuterYAxis(OUTER_Y_AXIS_DEFAULT)}>
+              <button onClick={() => setOuterYAxis(OUTER_Y_AXIS_DEFAULT)}>
                 reset
               </button>
             </div>
@@ -121,7 +121,7 @@ const Editor = (props: EditorProps) => {
             />
             <div className="flex justify-between">
               <p>Posisi Horizontal Outer</p>
-              <button onClick={(e) => setOuterXAxis(OUTER_X_AXIS_DEFAULT)}>
+              <button onClick={() => setOuterXAxis(OUTER_X_AXIS_DEFAULT)}>
                 reset
               </button>
             </div>
@@ -135,7 +135,7 @@ const Editor = (props: EditorProps) => {
             />
             <div className="flex justify-between">
               <p>Perbesar outer</p>
-              <button onClick={(e) => setOuterScale(OUTER_SCALE_DEFAULT)}>
+              <button onClick={() => setOuterScale(OUTER_SCALE_DEFAULT)}>
                 reset
               </button>
             </div>
