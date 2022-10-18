@@ -86,6 +86,7 @@ const Editor = (props: EditorProps) => {
                   marginTop: `${outerYAxis}px`,
                   left: `${outerXAxis}px`,
                   transform: `scale(${outerScale})`,
+                  objectFit: "cover",
                 }}
               />
             </div>
