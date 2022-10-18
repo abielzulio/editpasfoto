@@ -91,6 +91,7 @@ const Editor = (props: EditorProps) => {
                   src={currentOuter.src}
                   layout="fill"
                   objectFit="cover"
+                  priority
                 />
               </div>
             </div>
