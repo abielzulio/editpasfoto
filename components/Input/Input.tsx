@@ -1,4 +1,5 @@
-import { Outer, Ratio } from "types"
+import { Outer, Ratio, ContainerProps } from "types"
+import { SetStateAction, Dispatch } from "react"
 
 interface SliderProps {
   min: number
@@ -7,6 +8,29 @@ interface SliderProps {
   value: number
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
+
+interface SelectProps {
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  options: Ratio[] | Outer[]
+}
+
+interface ResetProps {
+  resetDefault: Dispatch<SetStateAction<number>>
+  defaultValue: number
+}
+
+interface TitleProps {
+  children: string
+}
+
+export const Root = (props: ContainerProps) => (
+  <div className="flex flex-col gap-[10px]">{props.children}</div>
+)
+
+export const Title = (props: TitleProps) => (
+  <p className="text-left">{props.children}</p>
+)
 
 export const Slider = (props: SliderProps) => (
   <input
@@ -19,22 +43,16 @@ export const Slider = (props: SliderProps) => (
   />
 )
 
-interface SelectProps {
-  value: string
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
-  options: Ratio[] | Outer[]
-}
-
 export const Select = (props: SelectProps) => (
-  <select
-    value={props.value}
-    onChange={props.onChange}
-    className="text-black my-10"
-  >
+  <select value={props.value} onChange={props.onChange} className="text-black">
     {props.options.map((option) => (
       <option key={option.id} value={option.value}>
         {option.value}
       </option>
     ))}
   </select>
+)
+
+export const Reset = (props: ResetProps) => (
+  <button onClick={() => props.resetDefault(props.defaultValue)}>↺</button>
 )

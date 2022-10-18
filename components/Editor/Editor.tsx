@@ -91,56 +91,71 @@ const Editor = (props: EditorProps) => {
               />
             </div>
           </div>
-          <div className="flex flex-col">
-            <Input.Select
-              value={currentRatio.value}
-              onChange={handleRatioChange}
-              options={IMAGE_RATIO_OPTIONS}
-            />
-            <Input.Select
-              value={currentOuter.value}
-              onChange={handleOuterChange}
-              options={OUTER_OPTIONS}
-            />
-            <div className="flex justify-between">
-              <p>Posisi Vertikal Outer</p>
-              <button onClick={() => setOuterYAxis(OUTER_Y_AXIS_DEFAULT)}>
-                reset
-              </button>
-            </div>
-            <Input.Slider
-              min={OUTER_Y_AXIS_MIN}
-              max={OUTER_Y_AXIS_MAX}
-              step={OUTER_Y_AXIS_STEP}
-              value={outerYAxis}
-              onChange={(e) => setOuterYAxis(Number(e.target.value))}
-            />
-            <div className="flex justify-between">
-              <p>Posisi Horizontal Outer</p>
-              <button onClick={() => setOuterXAxis(OUTER_X_AXIS_DEFAULT)}>
-                reset
-              </button>
-            </div>
-            <Input.Slider
-              min={OUTER_X_AXIS_MIN}
-              max={OUTER_X_AXIS_MAX}
-              step={OUTER_X_AXIS_STEP}
-              value={outerXAxis}
-              onChange={(e) => setOuterXAxis(Number(e.target.value))}
-            />
-            <div className="flex justify-between">
-              <p>Perbesar outer</p>
-              <button onClick={() => setOuterScale(OUTER_SCALE_DEFAULT)}>
-                reset
-              </button>
-            </div>
-            <Input.Slider
-              min={OUTER_SCALE_MIN}
-              max={OUTER_SCALE_MAX}
-              step={OUTER_SCALE_STEP}
-              value={outerScale}
-              onChange={(e) => setOuterScale(Number(e.target.value))}
-            />
+          <div className="flex flex-col gap-[30px]">
+            <Input.Root>
+              <Input.Title>Ubah Rasio Foto</Input.Title>
+              <Input.Select
+                value={currentRatio.value}
+                onChange={handleRatioChange}
+                options={IMAGE_RATIO_OPTIONS}
+              />
+            </Input.Root>
+            <Input.Root>
+              <Input.Title>Ubah Rasio Foto</Input.Title>
+              <Input.Select
+                value={currentOuter.value}
+                onChange={handleOuterChange}
+                options={OUTER_OPTIONS}
+              />
+            </Input.Root>
+            <Input.Root>
+              <div className="flex justify-between">
+                <Input.Title>Posisi Vertikal Outer</Input.Title>
+                <Input.Reset
+                  resetDefault={setOuterYAxis}
+                  defaultValue={OUTER_Y_AXIS_DEFAULT}
+                />
+              </div>
+              <Input.Slider
+                min={OUTER_Y_AXIS_MIN}
+                max={OUTER_Y_AXIS_MAX}
+                step={OUTER_Y_AXIS_STEP}
+                value={outerYAxis}
+                onChange={(e) => setOuterYAxis(Number(e.target.value))}
+              />
+            </Input.Root>
+            <Input.Root>
+              <div className="flex justify-between">
+                <Input.Title>Posisi Horizontal Outer</Input.Title>
+                <Input.Reset
+                  resetDefault={setOuterXAxis}
+                  defaultValue={OUTER_X_AXIS_DEFAULT}
+                />
+              </div>
+              <Input.Slider
+                min={OUTER_X_AXIS_MIN}
+                max={OUTER_X_AXIS_MAX}
+                step={OUTER_X_AXIS_STEP}
+                value={outerXAxis}
+                onChange={(e) => setOuterXAxis(Number(e.target.value))}
+              />
+            </Input.Root>
+            <Input.Root>
+              <div className="flex justify-between">
+                <Input.Title>Perbesar Outer</Input.Title>
+                <Input.Reset
+                  resetDefault={setOuterScale}
+                  defaultValue={OUTER_SCALE_DEFAULT}
+                />
+              </div>
+              <Input.Slider
+                min={OUTER_SCALE_MIN}
+                max={OUTER_SCALE_MAX}
+                step={OUTER_SCALE_STEP}
+                value={outerScale}
+                onChange={(e) => setOuterScale(Number(e.target.value))}
+              />
+            </Input.Root>
             <Download passRef={ref} fileName={image[0].name} />
             <button onClick={() => resetImage([])}>hapus foto</button>
           </div>
