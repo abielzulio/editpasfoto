@@ -60,7 +60,7 @@ const Editor = (props: EditorProps) => {
       {image.length > 0 && (
         <div className="grid md:grid-cols-2 grid-cols-1 gap-[30px] align-center text-white text-opacity-80 text-sm">
           <div
-            className="flex flex-col relative justify-center items-center bg-white bg-opacity-5 -[25px]"
+            className="flex flex-col relative justify-center items-center bg-gray-900 rounded-xl"
             style={{
               width: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
               height: `100%`,
@@ -157,8 +157,13 @@ const Editor = (props: EditorProps) => {
               />
             </Input.Root>
             <div className="flex gap-[20px] mx-auto">
+              <button
+                onClick={() => resetImage([])}
+                className="opacity-50 hover:opacity-80"
+              >
+                Ganti foto
+              </button>
               <Download passRef={ref} fileName={image[0].name} />
-              <button onClick={() => resetImage([])}>Ganti foto</button>
             </div>
           </div>
         </div>
