@@ -88,8 +88,6 @@ const Editor = (props: EditorProps) => {
                 }}
               />
             </div>
-            <Download passRef={ref} fileName={image[0].name} />
-            <button onClick={() => resetImage([])}>hapus foto</button>
           </div>
           <div className="flex flex-col">
             <select
@@ -156,6 +154,8 @@ const Editor = (props: EditorProps) => {
               onChange={(e) => setOuterScale(Number(e.target.value))}
               value={outerScale}
             />
+            <Download passRef={ref} fileName={image[0].name} />
+            <button onClick={() => resetImage([])}>hapus foto</button>
           </div>
         </div>
       )}
