@@ -10,11 +10,11 @@ interface DownloadProps {
 
 const Download = (props: DownloadProps) => {
   const { passRef, type = "png", fileName } = props
+
   const onButtonClick = useCallback(() => {
     if (passRef.current === null) {
       return
     }
-
     if (type === "png") {
       toPng(passRef.current, { cacheBust: true })
         .then((dataUrl) => {
@@ -45,6 +45,7 @@ const Download = (props: DownloadProps) => {
         })
     }
   }, [passRef, type])
+
   return (
     <button
       onClick={onButtonClick}
