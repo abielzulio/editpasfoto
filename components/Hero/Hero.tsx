@@ -1,6 +1,18 @@
+import useScrollPosition from "hooks/useScrollPosition"
+import React from "react"
+
 const Hero = (props: React.HTMLAttributes<HTMLElement>) => {
+  const scrollPosition = useScrollPosition()
   return (
-    <section className={`flex flex-col gap-[30px] w-full ${props.className}`}>
+    <section
+      className={`flex flex-col gap-[30px] w-full ${props.className}`}
+      style={{
+        opacity: 1 - (scrollPosition * 0.5) / 100,
+        transform: `translateY(${scrollPosition * 0.5}px) scale(${
+          1 - (scrollPosition * 0.125) / 100
+        })`,
+      }}
+    >
       <h1 className="md:text-[54px] text-[36px] text-transparent bg-white-linear-gradient bg-clip-text tracking-tight md:leading-[54px] leading-[36px]">
         Edit pas foto. <br /> Tanpa skill edit foto.
       </h1>
