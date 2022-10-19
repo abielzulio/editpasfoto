@@ -18,7 +18,7 @@ interface ResetProps {
 
 export const Root = (props: React.HTMLAttributes<HTMLDivElement>) => {
   const { className = `flex-col` } = props
-  return <div className={`flex gap-[10px] ${className}`}>{props.children}</div>
+  return <div className={`flex gap-[5px] ${className}`}>{props.children}</div>
 }
 
 export const Title = (props: React.HTMLAttributes<HTMLParagraphElement>) => (
