@@ -5,7 +5,7 @@ import type { NextPage } from "next"
 
 const Home: NextPage = () => {
   return (
-    <section className="min-w-screen min-h-screen md:py-[100px] py-[50px] text-center flex flex-col align-center justify-center">
+    <section className="min-w-screen min-h-screen py-[30px] text-center flex flex-col align-center justify-center">
       <Hero />
       <Dropzone />
       <Author />
