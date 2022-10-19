@@ -3,6 +3,9 @@ import {
   PHOTO_BASE_SIZE,
   PHOTO_RATIO_OPTIONS,
   PHOTO_SCALE_DEFAULT,
+  PHOTO_SCALE_MAX,
+  PHOTO_SCALE_MIN,
+  PHOTO_SCALE_STEP,
   PHOTO_X_AXIS_DEFAULT,
   PHOTO_X_AXIS_MAX,
   PHOTO_X_AXIS_MIN,
@@ -31,6 +34,7 @@ import { Dispatch, SetStateAction, useRef, useState } from "react"
 import { Image, Outer, Ratio } from "types"
 import * as Input from "components/Input"
 import NextImage from "next/image"
+import { COPY_NO_UPLOAD } from "data/copy"
 
 interface ToolProps {
   image: Image[]
@@ -71,9 +75,9 @@ const Tool = (props: ToolProps) => {
   return (
     <>
       {image.length > 0 && (
-        <div className="w-min max-h-min my-auto">
+        <div className="w-min max-h-min my-auto flex flex-col md:gap-[30px] gap-[20px] text-white text-sm ">
           <div
-            className="flex flex-col relative justify-center text-white text-opacity-80 text-sm items-center bg-gray-900 overflow-hidden my-auto"
+            className="flex flex-col relative justify-center text-opacity-80 items-center bg-gray-900 overflow-hidden my-auto"
             style={{
               width: `${PHOTO_BASE_SIZE}px`,
               height: `${PHOTO_BASE_SIZE}px`,
@@ -86,9 +90,10 @@ const Tool = (props: ToolProps) => {
                 width: `${currentRatio.width}px`,
                 height: `${currentRatio.height}px`,
                 background: `url(${image[0]?.src})`,
-                backgroundPosition: `${photoXAxis}px ${photoYAxis}px`,
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundPositionX: `${photoXAxis}px`,
+                backgroundPositionY: `${photoYAxis}px`,
+                backgroundSize: `${photoScale * 100}%`,
               }}
             >
               <div
@@ -110,10 +115,11 @@ const Tool = (props: ToolProps) => {
           </div>
           <button
             onClick={() => resetImage([])}
-            className="mt-[20px] text-opacity-50 text-white text-sm hover:text-opacity-80 transition-opacity text-center"
+            className="opacity-50 text-sm hover:opacity-80 transition-opacity text-center"
           >
             Ubah foto
           </button>
+          <i className="text-sm opacity-30">{COPY_NO_UPLOAD}</i>
         </div>
       )}
       <div
@@ -165,6 +171,24 @@ const Tool = (props: ToolProps) => {
             value={photoXAxis}
             type="horizontal"
             onChange={(e) => setPhotoXAxis(Number(e.target.value))}
+          />
+        </Input.Root>
+        <Input.Root>
+          <div className="flex justify-between">
+            <Input.Title>Perbesar Foto</Input.Title>
+            <Input.Reset
+              resetDefault={setPhotoScale}
+              defaultValue={PHOTO_SCALE_DEFAULT}
+              currentValue={photoScale}
+            />
+          </div>
+          <Input.Slider
+            min={PHOTO_SCALE_MIN}
+            max={PHOTO_SCALE_MAX}
+            step={PHOTO_SCALE_STEP}
+            value={photoScale}
+            type="scale"
+            onChange={(e) => setPhotoScale(Number(e.target.value))}
           />
         </Input.Root>
         <Input.Root>
