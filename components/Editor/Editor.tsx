@@ -3,6 +3,7 @@ import Tool from "components/Tool"
 import { useCallback, useState } from "react"
 import { Image } from "types"
 import { SAMPLE_IMAGE } from "data/editor"
+import { COPY_NO_UPLOAD } from "data/copy"
 
 const Editor = () => {
   const [image, setImage] = useState<Image[]>([])
@@ -26,14 +27,15 @@ const Editor = () => {
   return (
     <section className="h-min grid md:grid-cols-2 grid-cols-1 gap-[30px] relative my-[40px] mx-auto bg-white bg-opacity-5 p-[25px] border-gray-50 border-[1px] border-opacity-10 rounded-xl">
       {image.length == 0 && (
-        <div className="w-min max-h-min my-auto">
+        <div className="w-min max-h-min my-auto flex flex-col md:gap-[30px] gap-[20px] text-white">
           <Dropzone onDropAccepted={onDropAccepted} />
           <button
             onClick={() => setImage(SAMPLE_IMAGE)}
-            className="mt-[20px] text-opacity-50 text-white text-sm hover:text-opacity-80 transition-opacity text-center"
+            className="opacity-50 text-sm hover:opacity-80 transition-opacity text-center"
           >
             Gunakan contoh
           </button>
+          <i className="text-sm opacity-30">{COPY_NO_UPLOAD}</i>
         </div>
       )}
       <Tool image={image} resetImage={setImage} />
