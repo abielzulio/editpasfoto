@@ -26,10 +26,10 @@ const Editor = (props: React.HTMLAttributes<HTMLElement>) => {
 
   return (
     <section
-      className={`${props.className} h-min grid md:grid-cols-2 grid-cols-1 gap-[30px] relative md:mt-[225px] mt-[175px] mb-[30px] mx-auto bg-[#1a242d] backdrop-blur-sm bg-opacity-80 p-[25px] border-gray-50 border-[1px] border-opacity-10 rounded-xl shadow-2xl shadow-gray-800`}
+      className={`${props.className} h-min md:w-[700px] w-fit md:mx-auto mx-[30px] grid md:grid-cols-2 grid-cols-1 gap-[30px] relative md:mt-[225px] mt-[175px] mb-[30px] bg-[#1a242d] backdrop-blur-sm bg-opacity-80 p-[25px] border-gray-50 border-[1px] border-opacity-10 rounded-xl shadow-2xl shadow-gray-800`}
     >
       {image.length == 0 && (
-        <div className="w-min max-h-min my-auto flex flex-col md:gap-[30px] gap-[20px] text-white">
+        <div className="w-fit max-h-min my-auto flex flex-col md:gap-[30px] gap-[20px] text-white">
           <Dropzone onDropAccepted={onDropAccepted} />
           <button
             onClick={() => setImage(SAMPLE_IMAGE)}
