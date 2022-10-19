@@ -5,7 +5,7 @@ import { Image } from "types"
 import { SAMPLE_IMAGE } from "data/editor"
 import { COPY_NO_UPLOAD } from "data/copy"
 
-const Editor = () => {
+const Editor = (props: React.HTMLAttributes<HTMLElement>) => {
   const [image, setImage] = useState<Image[]>([])
 
   const onDropAccepted = useCallback((acceptedFiles: File[]) => {
@@ -25,7 +25,9 @@ const Editor = () => {
   }, [])
 
   return (
-    <section className="h-min grid md:grid-cols-2 grid-cols-1 gap-[30px] relative my-[40px] mx-auto bg-white bg-opacity-5 p-[25px] border-gray-50 border-[1px] border-opacity-10 rounded-xl">
+    <section
+      className={`${props.className} h-min grid md:grid-cols-2 grid-cols-1 gap-[30px] relative md:mt-[225px] mt-[175px] mb-[30px] mx-auto bg-[#1a242d] backdrop-blur-sm bg-opacity-80 p-[25px] border-gray-50 border-[1px] border-opacity-10 rounded-xl`}
+    >
       {image.length == 0 && (
         <div className="w-min max-h-min my-auto flex flex-col md:gap-[30px] gap-[20px] text-white">
           <Dropzone onDropAccepted={onDropAccepted} />
