@@ -1,5 +1,17 @@
 import Download from "components/Download"
-import { PHOTO_BASE_SIZE, PHOTO_RATIO_OPTIONS } from "data/photo"
+import {
+  PHOTO_BASE_SIZE,
+  PHOTO_RATIO_OPTIONS,
+  PHOTO_SCALE_DEFAULT,
+  PHOTO_X_AXIS_DEFAULT,
+  PHOTO_X_AXIS_MAX,
+  PHOTO_X_AXIS_MIN,
+  PHOTO_X_AXIS_STEP,
+  PHOTO_Y_AXIS_DEFAULT,
+  PHOTO_Y_AXIS_MAX,
+  PHOTO_Y_AXIS_MIN,
+  PHOTO_Y_AXIS_STEP,
+} from "data/photo"
 import {
   OUTER_OPTIONS,
   OUTER_SCALE_DEFAULT,
@@ -35,6 +47,10 @@ const Tool = (props: ToolProps) => {
   )
   const [currentOuter, setCurrentOuter] = useState<Outer>(OUTER_OPTIONS[0])
 
+  const [photoXAxis, setPhotoXAxis] = useState<number>(PHOTO_X_AXIS_DEFAULT)
+  const [photoYAxis, setPhotoYAxis] = useState<number>(PHOTO_Y_AXIS_DEFAULT)
+  const [photoScale, setPhotoScale] = useState<number>(PHOTO_SCALE_DEFAULT)
+
   const [outerYAxis, setOuterYAxis] = useState<number>(OUTER_Y_AXIS_DEFAULT)
   const [outerXAxis, setOuterXAxis] = useState<number>(OUTER_X_AXIS_DEFAULT)
   const [outerScale, setOuterScale] = useState<number>(OUTER_SCALE_DEFAULT)
@@ -69,7 +85,7 @@ const Tool = (props: ToolProps) => {
               width: `${currentRatio.width}px`,
               height: `${currentRatio.height}px`,
               background: `url(${image[0]?.src})`,
-              backgroundPosition: `${outerXAxis}% ${outerYAxis}%`,
+              backgroundPosition: `${photoXAxis}px ${photoYAxis}px`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
@@ -105,6 +121,40 @@ const Tool = (props: ToolProps) => {
             value={currentRatio.value}
             onChange={handleRatioChange}
             options={PHOTO_RATIO_OPTIONS}
+          />
+        </Input.Root>
+        <Input.Root>
+          <div className="flex justify-between">
+            <Input.Title>Posisi Vertikal Foto</Input.Title>
+            <Input.Reset
+              resetDefault={setPhotoYAxis}
+              defaultValue={PHOTO_Y_AXIS_DEFAULT}
+            />
+          </div>
+          <Input.Slider
+            min={PHOTO_Y_AXIS_MIN}
+            max={PHOTO_Y_AXIS_MAX}
+            step={PHOTO_Y_AXIS_STEP}
+            value={photoYAxis}
+            type="vertical"
+            onChange={(e) => setPhotoYAxis(Number(e.target.value))}
+          />
+        </Input.Root>
+        <Input.Root>
+          <div className="flex justify-between">
+            <Input.Title>Posisi Horizontal Outer</Input.Title>
+            <Input.Reset
+              resetDefault={setPhotoXAxis}
+              defaultValue={PHOTO_X_AXIS_DEFAULT}
+            />
+          </div>
+          <Input.Slider
+            min={PHOTO_X_AXIS_MIN}
+            max={PHOTO_X_AXIS_MAX}
+            step={PHOTO_X_AXIS_STEP}
+            value={photoXAxis}
+            type="horizontal"
+            onChange={(e) => setPhotoXAxis(Number(e.target.value))}
           />
         </Input.Root>
         <Input.Root>
