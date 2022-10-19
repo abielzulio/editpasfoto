@@ -132,6 +132,7 @@ const Tool = (props: ToolProps) => {
             max={OUTER_Y_AXIS_MAX}
             step={OUTER_Y_AXIS_STEP}
             value={outerYAxis}
+            type="vertical"
             onChange={(e) => setOuterYAxis(Number(e.target.value))}
           />
         </Input.Root>
@@ -148,6 +149,7 @@ const Tool = (props: ToolProps) => {
             max={OUTER_X_AXIS_MAX}
             step={OUTER_X_AXIS_STEP}
             value={outerXAxis}
+            type="horizontal"
             onChange={(e) => setOuterXAxis(Number(e.target.value))}
           />
         </Input.Root>
@@ -164,6 +166,7 @@ const Tool = (props: ToolProps) => {
             max={OUTER_SCALE_MAX}
             step={OUTER_SCALE_STEP}
             value={outerScale}
+            type="scale"
             onChange={(e) => setOuterScale(Number(e.target.value))}
           />
         </Input.Root>
