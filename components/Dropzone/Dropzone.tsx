@@ -3,7 +3,7 @@ import {
   CrossCircledIcon,
   UploadIcon,
 } from "@radix-ui/react-icons"
-import { BASE_SIZE, IMAGE_SCALER_FACTOR } from "data/editor"
+import { PHOTO_BASE_SIZE } from "data/photo"
 import { useDropzone } from "react-dropzone"
 
 interface DropzoneProps {
@@ -38,7 +38,7 @@ const Dropzone = (props: DropzoneProps) => {
           : "border-dashed border-white border-opacity-20"
       }`}
       style={{
-        width: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
+        width: `${PHOTO_BASE_SIZE}px`,
       }}
     >
       <input

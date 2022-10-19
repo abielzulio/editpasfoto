@@ -1,9 +1,5 @@
 import Download from "components/Download"
-import {
-  BASE_SIZE,
-  IMAGE_RATIO_OPTIONS,
-  IMAGE_SCALER_FACTOR,
-} from "data/editor"
+import { PHOTO_BASE_SIZE, PHOTO_RATIO_OPTIONS } from "data/photo"
 import {
   OUTER_OPTIONS,
   OUTER_SCALE_DEFAULT,
@@ -35,7 +31,7 @@ const Tool = (props: ToolProps) => {
   const ref = useRef<HTMLImageElement>(null)
 
   const [currentRatio, setCurrentRatio] = useState<Ratio>(
-    IMAGE_RATIO_OPTIONS[0]
+    PHOTO_RATIO_OPTIONS[0]
   )
   const [currentOuter, setCurrentOuter] = useState<Outer>(OUTER_OPTIONS[0])
 
@@ -44,7 +40,7 @@ const Tool = (props: ToolProps) => {
   const [outerScale, setOuterScale] = useState<number>(OUTER_SCALE_DEFAULT)
 
   const handleRatioChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedRatio = IMAGE_RATIO_OPTIONS.find(
+    const selectedRatio = PHOTO_RATIO_OPTIONS.find(
       (ratio: Ratio) => ratio.value === e.target.value
     )
     setCurrentRatio(selectedRatio as Ratio)
@@ -60,20 +56,20 @@ const Tool = (props: ToolProps) => {
     <>
       {image.length > 0 && (
         <div
-          className="flex flex-col relative justify-center text-white text-opacity-80 text-sm items-center bg-gray-900 rounded-xl"
+          className="flex flex-col relative justify-center text-white text-opacity-80 text-sm items-center bg-gray-900 rounded-xl overflow-hidden"
           style={{
-            width: `${BASE_SIZE * IMAGE_SCALER_FACTOR}px`,
+            width: `${PHOTO_BASE_SIZE}px`,
             height: `100%`,
           }}
         >
           <div
             ref={ref}
-            className={`relative object-cover overflow-hidden`}
+            className={`relative overflow-hidden`}
             style={{
-              width: `${currentRatio.width * IMAGE_SCALER_FACTOR}px`,
-              height: `${currentRatio.height * IMAGE_SCALER_FACTOR}px`,
+              width: `${currentRatio.width}px`,
+              height: `${currentRatio.height}px`,
               background: `url(${image[0]?.src})`,
-              backgroundPosition: "center center",
+              backgroundPosition: `${outerXAxis}% ${outerYAxis}%`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
@@ -108,7 +104,7 @@ const Tool = (props: ToolProps) => {
           <Input.Select
             value={currentRatio.value}
             onChange={handleRatioChange}
-            options={IMAGE_RATIO_OPTIONS}
+            options={PHOTO_RATIO_OPTIONS}
           />
         </Input.Root>
         <Input.Root>
