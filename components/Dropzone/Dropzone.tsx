@@ -4,6 +4,12 @@ import { useState } from "react"
 import { Image } from "types"
 import Editor from "components/Editor"
 import { SAMPLE_IMAGE } from "data/editor"
+import {
+  CheckCircledIcon,
+  CheckIcon,
+  CrossCircledIcon,
+  UploadIcon,
+} from "@radix-ui/react-icons"
 
 const Dropzone = () => {
   const [image, setImage] = useState<Image[]>([])
@@ -48,13 +54,13 @@ const Dropzone = () => {
           </p>
           <div
             {...getRootProps({ className: "dropzone" })}
-            className={`transition flex border-opacity-20 border-[2px] p-[25px] text-white w-[150px] h-[200px] rounded-md text-opacity-30 hover:border-opacity-50 hover:cursor-pointer hover:bg-gray-800 hover:text-opacity-100 ${
+            className={`transition flex flex-col justify-center items-center border-opacity-20 border-[2px] p-[25px] text-white w-[150px] h-[200px] rounded-md text-opacity-30 hover:border-opacity-50 hover:cursor-pointer hover:bg-gray-800 hover:text-opacity-100 ${
               isDragAccept
-                ? "border-opacity-100 text-opacity-100 bg-gray-800"
+                ? "border-opacity-100 text-opacity-100 bg-gray-800 border-green-400 !text-green-400"
                 : "border-dashed"
             } ${
               isDragReject
-                ? "border-red-900 border-opacity-100 !text-red-900 cursor-no-drop border-solid"
+                ? "border-red-400 border-opacity-100 !text-red-400 cursor-no-drop border-solid"
                 : "border-dashed border-white border-opacity-20"
             }`}
           >
@@ -64,14 +70,13 @@ const Dropzone = () => {
                 isDragReject ? "cursor-not-allowed" : ""
               }`}
             />
-            {isDragReject && (
-              <p>Hanya mendukung jenis file .png, .jpg, dan .jpeg.</p>
-            )}
-            <p className="text-sm my-auto">
+            {!isDragActive && <UploadIcon width={18} height={18} />}
+            {isDragAccept && <CheckCircledIcon width={18} height={18} />}
+            {isDragReject && <CrossCircledIcon width={18} height={18} />}
+            <p className="text-sm my-[12px]">
               {!isDragActive && `Tarik file atau klik untuk mengunggah`}
               {isDragAccept && `Foto dapat diunggah`}
-              {isDragReject &&
-                `Hanya mendukung jenis file .png, .jpg, dan .jpeg`}
+              {isDragReject && `Hanya mendukung .png, .jpg, dan .jpeg`}
             </p>
           </div>
           <button
