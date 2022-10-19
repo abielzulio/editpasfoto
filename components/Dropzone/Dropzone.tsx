@@ -28,7 +28,7 @@ const Dropzone = (props: DropzoneProps) => {
   return (
     <div
       {...getRootProps({ className: "dropzone" })}
-      className={`transition flex w-full h-full flex-col justify-center items-center border-opacity-20 border-[2px] p-[25px] text-white rounded-md text-opacity-30 hover:border-opacity-50 hover:cursor-pointer hover:bg-gray-800 hover:text-opacity-100 ${
+      className={`transition flex w-full h-full flex-col justify-center items-center border-opacity-20 border-[2px] p-[25px] text-white rounded-md hover:border-opacity-50 hover:cursor-pointer hover:bg-gray-800 ${
         isDragAccept
           ? "border-opacity-100 text-opacity-100 bg-gray-800 border-green-400 !text-green-400"
           : "border-dashed"
