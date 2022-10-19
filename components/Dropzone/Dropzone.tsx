@@ -39,6 +39,7 @@ const Dropzone = (props: DropzoneProps) => {
       }`}
       style={{
         width: `${PHOTO_BASE_SIZE}px`,
+        height: `${PHOTO_BASE_SIZE}px`,
       }}
     >
       <input

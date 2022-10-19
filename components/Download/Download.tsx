@@ -1,5 +1,4 @@
 import { DownloadIcon } from "@radix-ui/react-icons"
-import { product } from "data/product"
 import { toJpeg, toPng } from "html-to-image"
 import { RefObject, useCallback } from "react"
 
@@ -50,7 +49,7 @@ const Download = (props: DownloadProps) => {
   return (
     <button
       onClick={onButtonClick}
-      className="rounded-full bg-white text-black px-[16px] py-[8px] hover:bg-opacity-80 flex items-center gap-[10px] font-medium transition-opacity"
+      className="rounded-full bg-white text-black px-[14px] py-[8px] hover:bg-opacity-80 flex items-center gap-[10px] font-medium transition-opacity"
     >
       <DownloadIcon /> Download
     </button>

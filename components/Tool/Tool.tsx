@@ -71,41 +71,49 @@ const Tool = (props: ToolProps) => {
   return (
     <>
       {image.length > 0 && (
-        <div
-          className="flex flex-col relative justify-center text-white text-opacity-80 text-sm items-center bg-gray-900 rounded-xl overflow-hidden"
-          style={{
-            width: `${PHOTO_BASE_SIZE}px`,
-            height: `100%`,
-          }}
-        >
+        <div className="w-min max-h-min my-auto">
           <div
-            ref={ref}
-            className={`relative overflow-hidden`}
+            className="flex flex-col relative justify-center text-white text-opacity-80 text-sm items-center bg-gray-900 overflow-hidden my-auto"
             style={{
-              width: `${currentRatio.width}px`,
-              height: `${currentRatio.height}px`,
-              background: `url(${image[0]?.src})`,
-              backgroundPosition: `${photoXAxis}px ${photoYAxis}px`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
+              width: `${PHOTO_BASE_SIZE}px`,
+              height: `${PHOTO_BASE_SIZE}px`,
             }}
           >
             <div
-              className="w-full h-full absolute"
+              ref={ref}
+              className={`relative overflow-hidden`}
               style={{
-                marginTop: `${outerYAxis}px`,
-                left: `${outerXAxis}px`,
-                transform: `scale(${outerScale})`,
+                width: `${currentRatio.width}px`,
+                height: `${currentRatio.height}px`,
+                background: `url(${image[0]?.src})`,
+                backgroundPosition: `${photoXAxis}px ${photoYAxis}px`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
               }}
             >
-              <NextImage
-                src={currentOuter.src}
-                layout="fill"
-                objectFit="cover"
-                priority
-              />
+              <div
+                className="w-full h-full absolute"
+                style={{
+                  marginTop: `${outerYAxis}px`,
+                  left: `${outerXAxis}px`,
+                  transform: `scale(${outerScale})`,
+                }}
+              >
+                <NextImage
+                  src={currentOuter.src}
+                  layout="fill"
+                  objectFit="cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
+          <button
+            onClick={() => resetImage([])}
+            className="mt-[20px] text-opacity-50 text-white text-sm hover:text-opacity-80 transition-opacity text-center"
+          >
+            Ubah foto
+          </button>
         </div>
       )}
       <div
@@ -216,15 +224,11 @@ const Tool = (props: ToolProps) => {
             onChange={(e) => setOuterScale(Number(e.target.value))}
           />
         </Input.Root>
-        <div className="flex gap-[20px] mx-auto">
-          <button
-            onClick={() => resetImage([])}
-            className="opacity-50 hover:opacity-80 transition-opacity"
-          >
-            Ubah foto
-          </button>
-          <Download passRef={ref} fileName={image[0]?.name} />
-        </div>
+        {image.length > 0 && (
+          <div className="flex gap-[20px] mx-auto">
+            <Download passRef={ref} fileName={image[0]?.name} />
+          </div>
+        )}
       </div>
     </>
   )

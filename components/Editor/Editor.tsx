@@ -26,7 +26,7 @@ const Editor = () => {
   return (
     <section className="h-min grid md:grid-cols-2 grid-cols-1 gap-[30px] relative my-[40px] mx-auto bg-white bg-opacity-5 p-[25px] border-gray-50 border-[1px] border-opacity-10 rounded-xl">
       {image.length == 0 && (
-        <div className="w-min max-h-min pb-[40px]">
+        <div className="w-min max-h-min my-auto">
           <Dropzone onDropAccepted={onDropAccepted} />
           <button
             onClick={() => setImage(SAMPLE_IMAGE)}
