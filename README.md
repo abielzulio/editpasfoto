@@ -8,9 +8,13 @@
 
   ![](/gifs/no-upload.gif)
 
-- [x] Change photo ratio
+- [x] Change photo ratio & position
+
+  ![](/gifs/edit-photo.gif)
 
 - [x] Various outer layer (formal + University)
+
+  ![](/gifs/change-outer.gif)
 
 ## To-do
 
