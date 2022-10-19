@@ -129,8 +129,10 @@ const Tool = (props: ToolProps) => {
             : "pointer-events-none opacity-25 cursor-not-allowed"
         } flex flex-col gap-[30px] text-white text-opacity-80 text-sm`}
       >
-        <Input.Root>
-          <Input.Title>Ubah Rasio Foto</Input.Title>
+        <Input.Root className="flex-row justify-between gap-[20px]">
+          <Input.Title className="text-left whitespace-nowrap">
+            Ubah Rasio Foto
+          </Input.Title>
           <Input.Select
             value={currentRatio.value}
             onChange={handleRatioChange}
@@ -191,8 +193,10 @@ const Tool = (props: ToolProps) => {
             onChange={(e) => setPhotoScale(Number(e.target.value))}
           />
         </Input.Root>
-        <Input.Root>
-          <Input.Title>Ubah Outer</Input.Title>
+        <Input.Root className="flex-row justify-between gap-[20px]">
+          <Input.Title className="text-left whitespace-nowrap">
+            Ubah Outer
+          </Input.Title>
           <Input.Select
             value={currentOuter.value}
             onChange={handleOuterChange}
