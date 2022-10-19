@@ -16,8 +16,3 @@ export interface Outer {
   value: string
   src: string
 }
-
-export interface ContainerProps {
-  children: React.ReactNode
-  className?: string
-}

@@ -1,19 +1,12 @@
-import { Outer, Ratio, ContainerProps } from "types"
-import { SetStateAction, Dispatch } from "react"
+import { Outer, Ratio } from "types"
+import { SetStateAction, Dispatch, SelectHTMLAttributes } from "react"
 import { ResetIcon } from "@radix-ui/react-icons"
 
-interface SliderProps {
-  min: number
-  max: number
-  step: number
-  value: number
+interface SliderProps extends React.InputHTMLAttributes<HTMLInputElement> {
   type: "vertical" | "horizontal" | "scale"
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-interface SelectProps {
-  value: string
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: Ratio[] | Outer[]
 }
 
@@ -23,16 +16,13 @@ interface ResetProps {
   currentValue: number
 }
 
-interface TitleProps {
-  children: string
+export const Root = (props: React.HTMLAttributes<HTMLDivElement>) => {
+  const { className = `flex-col` } = props
+  return <div className={`flex gap-[10px] ${className}`}>{props.children}</div>
 }
 
-export const Root = (props: ContainerProps) => (
-  <div className="flex flex-col gap-[10px]">{props.children}</div>
-)
-
-export const Title = (props: TitleProps) => (
-  <p className="text-left">{props.children}</p>
+export const Title = (props: React.HTMLAttributes<HTMLParagraphElement>) => (
+  <p className={props.className}>{props.children}</p>
 )
 
 export const Slider = (props: SliderProps) => (
@@ -60,7 +50,11 @@ export const Slider = (props: SliderProps) => (
 )
 
 export const Select = (props: SelectProps) => (
-  <select value={props.value} onChange={props.onChange} className="text-black">
+  <select
+    value={props.value}
+    onChange={props.onChange}
+    className="text-black w-full"
+  >
     {props.options.map((option) => (
       <option key={option.id} value={option.value}>
         {option.value}
