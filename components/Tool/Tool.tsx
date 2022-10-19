@@ -137,6 +137,7 @@ const Tool = (props: ToolProps) => {
             <Input.Reset
               resetDefault={setPhotoYAxis}
               defaultValue={PHOTO_Y_AXIS_DEFAULT}
+              currentValue={photoYAxis}
             />
           </div>
           <Input.Slider
@@ -154,6 +155,7 @@ const Tool = (props: ToolProps) => {
             <Input.Reset
               resetDefault={setPhotoXAxis}
               defaultValue={PHOTO_X_AXIS_DEFAULT}
+              currentValue={photoXAxis}
             />
           </div>
           <Input.Slider
@@ -179,6 +181,7 @@ const Tool = (props: ToolProps) => {
             <Input.Reset
               resetDefault={setOuterYAxis}
               defaultValue={OUTER_Y_AXIS_DEFAULT}
+              currentValue={outerYAxis}
             />
           </div>
           <Input.Slider
@@ -196,6 +199,7 @@ const Tool = (props: ToolProps) => {
             <Input.Reset
               resetDefault={setOuterXAxis}
               defaultValue={OUTER_X_AXIS_DEFAULT}
+              currentValue={outerXAxis}
             />
           </div>
           <Input.Slider
@@ -213,6 +217,7 @@ const Tool = (props: ToolProps) => {
             <Input.Reset
               resetDefault={setOuterScale}
               defaultValue={OUTER_SCALE_DEFAULT}
+              currentValue={outerScale}
             />
           </div>
           <Input.Slider

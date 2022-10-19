@@ -20,6 +20,7 @@ interface SelectProps {
 interface ResetProps {
   resetDefault: Dispatch<SetStateAction<number>>
   defaultValue: number
+  currentValue: number
 }
 
 interface TitleProps {
@@ -68,8 +69,9 @@ export const Select = (props: SelectProps) => (
   </select>
 )
 
-export const Reset = (props: ResetProps) => (
-  <button onClick={() => props.resetDefault(props.defaultValue)}>
-    <ResetIcon />
-  </button>
-)
+export const Reset = (props: ResetProps) =>
+  props.currentValue !== props.defaultValue ? (
+    <button onClick={() => props.resetDefault(props.defaultValue)}>
+      <ResetIcon />
+    </button>
+  ) : null
