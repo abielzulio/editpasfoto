@@ -1,6 +1,6 @@
 const Hero = (props: React.HTMLAttributes<HTMLElement>) => {
   return (
-    <section className={`flex flex-col gap-[30px] ${props.className}`}>
+    <section className={`flex flex-col gap-[30px] w-full ${props.className}`}>
       <h1 className="md:text-[54px] text-[36px] text-transparent bg-white-linear-gradient bg-clip-text tracking-tight md:leading-[54px] leading-[36px]">
         Edit pas foto. <br /> Tanpa skill edit foto.
       </h1>

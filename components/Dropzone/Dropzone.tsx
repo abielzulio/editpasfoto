@@ -30,11 +30,11 @@ const Dropzone = (props: DropzoneProps) => {
       {...getRootProps({ className: "dropzone" })}
       className={`transition flex w-full h-full flex-col justify-center items-center border-opacity-20 border-[2px] p-[25px] text-white rounded-md hover:border-opacity-50 hover:cursor-pointer hover:bg-gray-800 ${
         isDragAccept
-          ? "border-opacity-100 text-opacity-100 bg-gray-800 border-green-400 !text-green-400"
+          ? "border-opacity-100 text-opacity-100 bg-green-900 bg-opacity-20 border-green-400 !text-green-400"
           : "border-dashed"
       } ${
         isDragReject
-          ? "border-red-400 border-opacity-100 !text-red-400 cursor-no-drop border-solid"
+          ? "border-red-400 border-opacity-100 !bg-red-900 !bg-opacity-20 !text-red-400 cursor-no-drop border-solid"
           : "border-dashed border-white border-opacity-20"
       }`}
       style={{

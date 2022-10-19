@@ -77,7 +77,7 @@ const Tool = (props: ToolProps) => {
       {image.length > 0 && (
         <div className="w-min max-h-min my-auto flex flex-col md:gap-[30px] gap-[20px] text-white text-sm ">
           <div
-            className="flex flex-col relative justify-center text-opacity-80 items-center bg-gray-900 overflow-hidden my-auto"
+            className="flex flex-col relative justify-center text-opacity-80 items-center bg-gray-900 overflow-hidden my-auto rounded-lg"
             style={{
               width: `${PHOTO_BASE_SIZE}px`,
               height: `${PHOTO_BASE_SIZE}px`,
