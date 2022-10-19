@@ -5,7 +5,9 @@
 ## Features
 
 - [x] Client-side, privacy first (no photo is being collected)
-      [](/gifs/no-upload.gif)
+
+  ![](/gifs/no-upload.gif)
+
 - [x] Change photo ratio
 
 - [x] Various outer layer (formal + University)
