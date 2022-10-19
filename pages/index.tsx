@@ -1,13 +1,14 @@
-import Dropzone from "components/Dropzone"
+import Author from "components/Author"
+import Editor from "components/Editor"
+import Hero from "components/Hero"
 import type { NextPage } from "next"
 
 const Home: NextPage = () => {
   return (
-    <section className="min-w-screen min-h-screen py-[100px] text-center flex flex-col align-center justify-center bg-black-radial-gradient">
-      <h1 className="text-[64px] text-transparent bg-white-linear-gradient bg-clip-text tracking-tight leading-[64px]">
-        Edit pas foto. <br /> Tanpa skill edit foto.
-      </h1>
-      <Dropzone />
+    <section className="min-w-screen min-h-screen py-[30px] text-center flex flex-col align-center justify-center relative">
+      <Hero className="fixed top-10 inset-x-0l" />
+      <Editor className="top-100 z-10" />
+      <Author />
     </section>
   )
 }

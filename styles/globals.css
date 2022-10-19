@@ -4,10 +4,22 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+  padding: 0 !important;
+  margin: 0 !important;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: radial-gradient(#0e1720, #0e1b2c);
+  background-image: radial-gradient(#0e1720, #0e1b2c);
+}
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow: auto;
+  height: 100%;
 }
 
 a {
@@ -17,4 +29,6 @@ a {
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

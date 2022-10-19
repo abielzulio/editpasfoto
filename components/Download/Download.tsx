@@ -1,4 +1,4 @@
-import { product } from "data/product"
+import { DownloadIcon } from "@radix-ui/react-icons"
 import { toJpeg, toPng } from "html-to-image"
 import { RefObject, useCallback } from "react"
 
@@ -10,16 +10,19 @@ interface DownloadProps {
 
 const Download = (props: DownloadProps) => {
   const { passRef, type = "png", fileName } = props
+
   const onButtonClick = useCallback(() => {
     if (passRef.current === null) {
       return
     }
-
     if (type === "png") {
       toPng(passRef.current, { cacheBust: true })
         .then((dataUrl) => {
           const link = document.createElement("a")
-          link.download = `${fileName} - ${product.url}.png`
+          link.download = `${fileName.replace(
+            ".png",
+            ""
+          )} - editpasfoto.com.png`
           link.href = dataUrl
           link.click()
         })
@@ -30,7 +33,10 @@ const Download = (props: DownloadProps) => {
       toJpeg(passRef.current, { cacheBust: true })
         .then((dataUrl) => {
           const link = document.createElement("a")
-          link.download = `${fileName} - ${product.url}.jpeg`
+          link.download = `${fileName.replace(
+            ".jpeg",
+            ""
+          )} - editpasfoto.com.jpeg`
           link.href = dataUrl
           link.click()
         })
@@ -39,12 +45,13 @@ const Download = (props: DownloadProps) => {
         })
     }
   }, [passRef, type])
+
   return (
     <button
       onClick={onButtonClick}
-      className="rounded-full bg-white text-black px-[16px] py-[4px] hover:bg-opacity-80"
+      className="rounded-full bg-white text-black px-[14px] py-[8px] hover:bg-opacity-80 flex items-center gap-[10px] font-medium transition-opacity"
     >
-      Download
+      <DownloadIcon /> Download
     </button>
   )
 }
