@@ -131,7 +131,7 @@ const Tool = (props: ToolProps) => {
       >
         <Input.Root className="flex-row justify-between gap-[20px]">
           <Input.Title className="text-left whitespace-nowrap">
-            Ubah Rasio Foto
+            Rasio Foto
           </Input.Title>
           <Input.Select
             value={currentRatio.value}
@@ -195,7 +195,7 @@ const Tool = (props: ToolProps) => {
         </Input.Root>
         <Input.Root className="flex-row justify-between gap-[20px]">
           <Input.Title className="text-left whitespace-nowrap">
-            Ubah Outer
+            Tipe Outer
           </Input.Title>
           <Input.Select
             value={currentOuter.value}
@@ -258,7 +258,7 @@ const Tool = (props: ToolProps) => {
           />
         </Input.Root>
         {image.length > 0 && (
-          <div className="flex gap-[20px] mx-auto">
+          <div className="flex my-[20px] mx-auto">
             <Download passRef={ref} fileName={image[0]?.name} />
           </div>
         )}

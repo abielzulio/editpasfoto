@@ -50,7 +50,7 @@ const Dropzone = (props: DropzoneProps) => {
       {isDragAccept && <CheckCircledIcon width={18} height={18} />}
       {isDragReject && <CrossCircledIcon width={18} height={18} />}
       <p className="text-md my-[12px]">
-        {!isDragActive && `Tarik foto ke sini atau klik untuk mengunggah`}
+        {!isDragActive && `Tarik foto ke sini atau klik untuk mulai mengedit`}
         {isDragAccept && `Foto dapat diunggah`}
         {isDragReject && `Hanya mendukung .png, .jpg, dan .jpeg`}
       </p>
