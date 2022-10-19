@@ -3,7 +3,7 @@ import { Outer } from "types"
 export const OUTER_Y_AXIS_MIN: number = 0
 export const OUTER_Y_AXIS_MAX: number = 300
 export const OUTER_Y_AXIS_STEP: number = 0.05
-export const OUTER_Y_AXIS_DEFAULT: number = 130
+export const OUTER_Y_AXIS_DEFAULT: number = 175
 
 export const OUTER_X_AXIS_MIN: number = -100
 export const OUTER_X_AXIS_MAX: number = 100
