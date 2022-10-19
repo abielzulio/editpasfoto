@@ -1,6 +1,6 @@
 const Hero = () => (
   <section className="flex flex-col gap-[30px]">
-    <h1 className="md:text-[64px] text-[36px] text-transparent bg-white-linear-gradient bg-clip-text tracking-tight md:leading-[64px] leading-[36px]">
+    <h1 className="md:text-[54px] text-[36px] text-transparent bg-white-linear-gradient bg-clip-text tracking-tight md:leading-[54px] leading-[36px]">
       Edit pas foto. <br /> Tanpa skill edit foto.
     </h1>
     <a
