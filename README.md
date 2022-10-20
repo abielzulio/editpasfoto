@@ -1,20 +1,22 @@
 # editpasfoto.com
 
-[editpasfoto.com](https://editpasfoto.com) is a web-based Indonesian identification photograph editor app running on a client-side. Editpasfoto (ENG: _edit-identification-photograph_) built using Next.js + Typescript + TailwindCSS deployed using Vercel.
+> [editpasfoto.com](https://editpasfoto.com) is a web-based Indonesian identification photograph editor app running on a client-side. Editpasfoto (ENG: _edit-identification-photograph_) built using Next.js + Typescript + TailwindCSS deployed using Vercel.
+
+![](/assets/main.png)
 
 ## Features
 
 - [x] Client-side, privacy first (no photo is being collected)
 
-  ![](/gifs/no-upload.gif)
+  ![](/assets/no-upload.gif)
 
 - [x] Change photo ratio & position
 
-  ![](/gifs/edit-photo.gif)
+  ![](/assets/edit-photo.gif)
 
 - [x] Various outer layer (formal + University)
 
-  ![](/gifs/change-outer.gif)
+  ![](/assets/change-outer.gif)
 
 ## To-do
 
@@ -73,6 +75,12 @@ A step to contribe your outer layer
 ```
 
 6. And submit your pull-request. A review will shortly given to your pull-request.
+
+## Donation
+
+<a href="https://www.nihbuatjajan.com/lio" target="_blank"><img src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png" alt="Nih buat jajan" style="height: 51px !important;" ></a>
+
+[Support](https://www.nihbuatjajan.com/lio) Abiel Zulio M
 
 ## License
 
