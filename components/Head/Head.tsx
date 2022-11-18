@@ -37,8 +37,8 @@ Head.defaultProps = {
   keywords: product.keywords,
   img: product.url + product.img,
   url: product.url,
-  author: product.url + product.author,
-  favicon: product.favicon,
+  author: product.author,
+  favicon: product.url + product.favicon,
 }
 
 export default Head
