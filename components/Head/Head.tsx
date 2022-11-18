@@ -35,9 +35,9 @@ Head.defaultProps = {
   title: product.name + " | " + product.description.short,
   description: product.description.long,
   keywords: product.keywords,
-  img: product.img,
+  img: product.url + product.img,
   url: product.url,
-  author: product.author,
+  author: product.url + product.author,
   favicon: product.favicon,
 }
 
