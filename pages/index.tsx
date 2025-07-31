@@ -8,7 +8,6 @@ const Home: NextPage = () => {
     <section className="min-w-screen min-h-screen py-[30px] text-center flex flex-col align-center justify-center relative">
       <Hero className="fixed top-10 inset-x-0l" />
       <Editor className="top-100 z-10" />
-      <Author />
     </section>
   )
 }
